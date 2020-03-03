@@ -52,6 +52,7 @@ function Unit(params)
 	/** активно ли это действие */
 	this.isMoveActive = function(move)
 	{
+		if (!move) return false;
 		if (!move.lastTime) return true; // ещё не применяли
 		return this._ck_attacks - move.lastTime > move.cooldown
 	}

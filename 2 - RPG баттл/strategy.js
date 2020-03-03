@@ -27,5 +27,21 @@ module.exports = {
 		if (opponent.name == 'Удар хвостом') return this.moves[2]
 		if (this.getHealth() < this.getDamage(opponent)) return this.moves[3]
 		return this.moves[1]
-	}
+	},
+	// ручной режим
+	manual: function(opponent) {
+		console.log(`Противник применил ${opponent.name}, ${this.name} может сделать:`)
+		for (let i=0; i<this.moves.length; i++)
+		if (this.isMoveActive(this.moves[i]))
+			console.log(`[${i+1}] ${this.moves[i].name}`)
+		const readlineSync = require('readline-sync')
+		while (true)
+		{
+			let i = readlineSync.question('Выберите действие [=1]: ')
+			if (!i) i = 1
+			i = parseInt(i) - 1
+			if (this.isMoveActive(this.moves[i]))
+				return this.moves[i]
+		}
+	},
 }
