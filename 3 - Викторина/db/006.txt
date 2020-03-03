@@ -1,0 +1,5 @@
+Какой менеджер зависимостей используется в JavaScript
+1
+npm
+pacman
+composer

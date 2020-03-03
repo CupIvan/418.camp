@@ -1,0 +1,5 @@
+Какой функцией запустить таймер на несколько раз?
+2
+setTimeout
+setInterval
+setImmediate
